@@ -3,6 +3,9 @@ import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
+  // GitHub Pages 部署在项目子目录 /lumen-period/, 所有资源路径必须带这个前缀,
+  // 否则绝对路径 /assets/... 会解析到站点根, 404 → 白屏。
+  base: '/lumen-period/',
   plugins: [
     react(),
     VitePWA({
