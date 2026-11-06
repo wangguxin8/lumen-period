@@ -1,0 +1,68 @@
+:root {
+  /* 暖米白底, 玫粉强调, 暖灰文字 — 极简克制, 不粉嫩不临床 */
+  --bg: #f4f1ee;
+  --surface: #ffffff;
+  --surface-alt: #faf8f6;
+  --accent: #c86b8a;
+  --accent-soft: rgba(200, 107, 138, 0.1);
+  --accent-text: #a84b6c;
+  --text-1: #2b2927;
+  --text-2: #6b6660;
+  --text-3: #9a938b;
+  --text-4: #c4beb6;
+  --flow-light: #e8c9d3;
+  --flow-moderate: #c86b8a;
+  --flow-heavy: #8c3a54;
+  --border: rgba(43, 41, 39, 0.08);
+  --border-strong: rgba(43, 41, 39, 0.14);
+  --radius: 16px;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--text-1);
+  font-family: var(--font);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* 经期 app 禁缩放, 避免误触缩放 */
+  touch-action: manipulation;
+  overscroll-behavior: none;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 安全区: 手机顶部状态栏/底部 home indicator */
+@supports (padding: env(safe-area-inset-top)) {
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* 隐藏滚动条但保留滚动 */
+::-webkit-scrollbar {
+  display: none;
+}
+* {
+  scrollbar-width: none;
+}
+
+button {
+  font-family: inherit;
+}
